@@ -38,7 +38,14 @@
               rTy
             </div>
             <div id="settings" v-pre>
-              settings
+              <div class="input-field col s12">
+                <select v-model="selectedLevelId">
+                  <option v-for="level in levels" v-bind:value="level.id">
+                    {{ level.orderId }}
+                  </option>
+                </select>
+                <label>{{ texts.levelSelectLabel[lang] }}</label>
+              </div>
             </div>
         </div>
       </div>
