@@ -14,5 +14,10 @@ const patterns = [
     durations: [0.25, 0.25, 0.25, 0.25],
     rhythmsText: 'dffg'
   },
+  {
+    id: 4,
+    durations: [0.33, 0.33, 0.33],
+    rhythmsText: 'rTy'
+  },
 ];
 

@@ -1,2 +1,9 @@
-/**/
+@font-face {
+    font-family: rhythms;
+    src: url('../fonts/rhythms/rhythms.ttf')  format('truetype');
+}
+
+.rhythms {
+  font-family: rhythms;
+}
 
