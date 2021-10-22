@@ -1,7 +1,7 @@
 const texts = {
   appTitle: {
-    en: 'VueJS Template',
-    fr: 'Template avec VueJS'
+    en: 'Rhythm Workshop',
+    fr: 'Atelier de rythme'
   }
 };
 

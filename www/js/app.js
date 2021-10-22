@@ -2,6 +2,7 @@ const app = new Vue({
   el: '#app',
   data: {
     lang: null,
+    globalVars,
     texts,
     screens
   },
