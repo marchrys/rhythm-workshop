@@ -3,7 +3,64 @@
     src: url('../fonts/rhythms/rhythms.ttf')  format('truetype');
 }
 
+:root {
+    --screen-bg-color: lightgray;
+    --main-bg-color: teal;
+    --danger-color: red;
+    --green-color: green;
+    background-color: var(--screen-bg-color);
+    font-size: 15px;
+}
+
+.nav-content, a.btn, div.collapsible-header{
+    background-color: var(--main-bg-color);
+    color: white;
+}
+
+.nav-title {
+  font-size: 1.4rem !important;
+  padding: 15px !important;
+}
+
+.container {
+    margin-top: 50px !important;
+    margin-bottom: 30px !important;
+}
+
+/* Selects text color */
+.dropdown-content li > a, .dropdown-content li > span, .input-field input[type=text], .input-field input[type=text]:focus {
+    color: black !important;
+    /* padding: 25px !important; */
+}
+
+/* Selects bottom border color */
+/* label underline focus color */
+.input-field input[type=text]:focus {
+	  border-bottom: 1px solid black !important;
+    box-shadow: 0 1px 0 0 black !important;
+}
+
+/* Selects bottom border color */
+/* label underline focus color */
+.input-field input[type=text], .input-field input[type=text]:focus {
+    /* padding: 40px 0 40px 0 !important;
+    line-height: 4em !important; */
+	  border-bottom: 1px solid black !important;
+    box-shadow: 0 1px 0 0 black !important;
+}
+
+div.input-field {
+  margin-bottom: 0px !important;
+}
+
+/* Couleur de texte du label des select */
+div.input-field label {
+  color: black;
+}
+
 .rhythms {
   font-family: rhythms;
+  text-align: center;
+  margin-top: 20px;
 }
 
