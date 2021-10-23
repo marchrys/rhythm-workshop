@@ -34,10 +34,10 @@
         </nav>
 
         <div class="container">
-            <div id="training" class="rhythms">
-              rTy
+            <div id="training">
+                {{ selectedLevel }}
             </div>
-            <div id="settings" v-pre>
+            <div id="settings">
               <div class="input-field col s12">
                 <select v-model="selectedLevel">
                   <option v-for="level in levels" v-bind:value="level">
@@ -46,8 +46,8 @@
                 </select>
                 <label>{{ texts.levelSelectLabel[lang] }}</label>
               </div>
-              <div v-for="id in selectedLevel.patternIds">
-                {{ patterns.find(pattern => pattern.id === id).id }}
+              <div class="rhythms" v-for="id in selectedLevel.patternIds">
+                {{ patterns.find(pattern => pattern.id === id).rhythmsText }}
               </div>
             </div>
         </div>
@@ -73,6 +73,5 @@
 
       <!-- Import vue js instances -->
       <script src="js/app.js"></script>
-      <script src="js/settings.js"></script>
 </body>
 </html>

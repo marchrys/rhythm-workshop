@@ -4,7 +4,10 @@ const app = new Vue({
     lang: null,
     globalVars,
     texts,
-    screens
+    screens,
+    patterns,
+    levels,
+    selectedLevel: levels[0]
   },
   methods: {
     detectNavigatorLanguage: function() {
@@ -20,14 +23,30 @@ const app = new Vue({
     initTabs: function() {
       let elem = document.querySelector('.tabs'); 
       let instance = M.Tabs.init(elem, {});
+    },
+    initSelects: function(){
+      const elems = document.querySelectorAll('select');
+      const instances = M.FormSelect.init(elems, {});
+    },
+    loadData: function(){ 
+      if (localStorage.selectedLevel) {
+        this.selectedLevel = JSON.parse(localStorage.selectedLevel);
+      }
+    }
+  },
+  watch: {
+    selectedLevel(newLevel) {
+      localStorage.selectedLevel = JSON.stringify(newLevel);
     }
   },
   beforeMount(){
     initSounds();
     this.detectNavigatorLanguage();
+    this.loadData();
   },
   mounted(){
     this.initTabs();
+    this.initSelects();
   }
 });
    
