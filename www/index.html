@@ -46,7 +46,9 @@
                 </select>
                 <label>{{ texts.levelSelectLabel[lang] }}</label>
               </div>
-              <div>{{ selectedLevel.patternIds }}</div>
+              <div v-for="id in selectedLevel.patternIds">
+                {{ patterns.find(pattern => pattern.id === id).id }}
+              </div>
             </div>
         </div>
       </div>

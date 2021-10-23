@@ -13,8 +13,8 @@ const settings = new Vue({
       const instances = M.FormSelect.init(elems, {});
     },
     loadData: function(){ 
-      if (localStorage.selected_level_id) {
-        this.selectedLevelId = localStorage.selected_level_id;
+      if (localStorage.selectedLevel) {
+        this.selectedLevel = JSON.parse(localStorage.selectedLevel);
       }
     }
   },
@@ -27,7 +27,7 @@ const settings = new Vue({
     }
   },
   beforeMount(){
-     
+     this.loadData();
   },
   mounted() {
     this.initSelects();
