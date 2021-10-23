@@ -5,15 +5,31 @@ const settings = new Vue({
     texts,
     patterns,
     levels,
-    selectedLevelId: 1
+    selectedLevel: levels[0]
   },
   methods: {
     initSelects: function(){
       const elems = document.querySelectorAll('select');
       const instances = M.FormSelect.init(elems, {});
+    },
+    loadData: function(){ 
+      if (localStorage.selected_level_id) {
+        this.selectedLevelId = localStorage.selected_level_id;
+      }
     }
   },
-  mounted(){
+  computed: {
+      
+  },
+  watch: {
+    selectedLevel(newLevel) {
+      localStorage.selectedLevel = JSON.stringify(newLevel);
+    }
+  },
+  beforeMount(){
+     
+  },
+  mounted() {
     this.initSelects();
   }
 });

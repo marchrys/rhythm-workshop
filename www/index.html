@@ -39,13 +39,14 @@
             </div>
             <div id="settings" v-pre>
               <div class="input-field col s12">
-                <select v-model="selectedLevelId">
-                  <option v-for="level in levels" v-bind:value="level.id">
+                <select v-model="selectedLevel">
+                  <option v-for="level in levels" v-bind:value="level">
                     {{ level.orderId }}
                   </option>
                 </select>
                 <label>{{ texts.levelSelectLabel[lang] }}</label>
               </div>
+              <div>{{ selectedLevel.patternIds }}</div>
             </div>
         </div>
       </div>
