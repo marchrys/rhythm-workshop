@@ -48,7 +48,7 @@
                         </div>
 
                         <div class="col s6 center-align" id="score-info">
-                          {{ texts.score[lang] }}: {{ rightAns.length }} / {{ questions.length }} ({{ successPercentage }}%)
+                          {{ texts.score[lang] }}: {{ rightAns.length }} / {{ questions.length }} ({{ successPercentage(rightAns.length, questions.length) }}%)
                           <!-- <a class="btn tooltipped" data-position="top" data-tooltip="test">
                             <i class="fas fa-info-circle"></i>
                           </a> -->

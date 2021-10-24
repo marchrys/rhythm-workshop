@@ -65,15 +65,9 @@ const app = new Vue({
   },
   computed: {
     successPercentage: function() {
-      let percentage;
-
-      if(this.questions.length > 0) {
-        percentage = Math.round(this.rightAns.length * 100 / this.questions.length);
-      } else {
-        percentage = 0;
-      }
-
-      return percentage;
+      
+      return(num1, num2) => (num2 > 0) ? num1 * 100 / num2 : 0;
+        
     }
   },
   watch: {
