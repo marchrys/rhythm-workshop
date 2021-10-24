@@ -64,10 +64,8 @@ const app = new Vue({
     }
   },
   computed: {
-    successPercentage: function() {
-      
-      return(num1, num2) => (num2 > 0) ? num1 * 100 / num2 : 0;
-        
+    percentage: function() {
+      return(num1, num2) => (num2 > 0) ? Math.round(num1 * 100 / num2) : 0;
     }
   },
   watch: {
