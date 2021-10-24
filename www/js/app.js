@@ -3,6 +3,7 @@ const app = new Vue({
   data: {
     lang: null,
     globalVars,
+    finishedLoadingSounds: false,
     texts,
     screens,
     patterns,
@@ -32,6 +33,20 @@ const app = new Vue({
       if (localStorage.selectedLevel) {
         this.selectedLevel = JSON.parse(localStorage.selectedLevel);
       }
+    },
+    filterLevels: function(){
+      if(this.globalVars.version.id === 0){
+        this.levels = this.levels.filter(level => level.inLite === true);
+      }
+    },
+    checkSoundsLoad() {
+      const soundsLoad = setInterval(function() {
+        if(allSoundsLoaded) {
+          this.finishedLoadingSounds = true;
+          clearInterval(soundsLoad);
+          return;
+        }
+      }.bind(this), 1000);
     }
   },
   watch: {
@@ -41,8 +56,10 @@ const app = new Vue({
   },
   beforeMount(){
     initSounds();
+    this.checkSoundsLoad();
     this.detectNavigatorLanguage();
     this.loadData();
+    this.filterLevels();
   },
   mounted(){
     this.initTabs();

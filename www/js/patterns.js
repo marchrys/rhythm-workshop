@@ -19,5 +19,10 @@ const patterns = [
     durations: [0.33, 0.33, 0.33],
     rhythmsText: 'rTy'
   },
+  {
+    id: 5,
+    durations: [0.75, 0.25],
+    rhythmsText: 'r.g'
+  },
 ];
 
