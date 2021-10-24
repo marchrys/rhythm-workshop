@@ -8,7 +8,9 @@ const app = new Vue({
     screens,
     patterns,
     levels,
-    selectedLevel: levels[0]
+    selectedLevel: levels[0],
+    questions: [],
+    rightAns: []
   },
   methods: {
     detectNavigatorLanguage: function() {
@@ -47,6 +49,31 @@ const app = new Vue({
           return;
         }
       }.bind(this), 1000);
+    },
+    orderLevels: function() {
+      this.levels.sort(this.compareLevels);
+    },
+    compareLevels: function( a, b ) {
+      if ( a.order < b.order ){
+        return -1;
+      }
+      if ( a.order > b.order ){
+        return 1;
+      }
+      return 0;
+    }
+  },
+  computed: {
+    successPercentage: function() {
+      let percentage;
+
+      if(this.questions.length > 0) {
+        percentage = Math.round(this.rightAns.length * 100 / this.questions.length);
+      } else {
+        percentage = 0;
+      }
+
+      return percentage;
     }
   },
   watch: {
@@ -60,6 +87,7 @@ const app = new Vue({
     this.detectNavigatorLanguage();
     this.loadData();
     this.filterLevels();
+    this.orderLevels();
   },
   mounted(){
     this.initTabs();

@@ -35,12 +35,26 @@
 
         <div class="container">
             <div id="training" class="center-align">
-              <div v-if="!finishedLoadingSounds" id="preloader">
-                <div id="preload-text">{{ texts.preloaderText[lang] }}</div>
-                <div class="progress">
-                  <div class="indeterminate"></div>
+                <div v-if="!finishedLoadingSounds" id="preloader">
+                  <div id="preload-text">{{ texts.preloaderText[lang] }}</div>
+                  <div class="progress">
+                    <div class="indeterminate"></div>
+                  </div>
                 </div>
-              </div>
+                <div v-if="finishedLoadingSounds" id="training-screen">
+                    <div class="row infos-row valign-wrapper">
+                        <div class="col s6 center-align" id="level-info">
+                          {{ texts.level[lang] }} {{ selectedLevel.orderId }}
+                        </div>
+
+                        <div class="col s6 center-align" id="score-info">
+                          {{ texts.score[lang] }}: {{ rightAns.length }} / {{ questions.length }} ({{ successPercentage }}%)
+                          <!-- <a class="btn tooltipped" data-position="top" data-tooltip="test">
+                            <i class="fas fa-info-circle"></i>
+                          </a> -->
+                        </div>
+                    </div>
+                </div>
             </div>
             <div id="settings">
               <div class="input-field col s12">

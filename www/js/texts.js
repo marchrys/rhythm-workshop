@@ -10,6 +10,14 @@ const texts = {
   preloaderText: {
     en: 'Please wait while loading sounds...',
     fr: 'Veuillez patienter pendant le chargement des sons...'
+  },
+  level: {
+    en: 'Level',
+    fr: 'Niveau' 
+  },
+  score: {
+    en: 'Score',
+    fr: 'Score'
   }
 };
 
