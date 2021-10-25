@@ -27,6 +27,19 @@
     margin-bottom: 30px !important;
 }
 
+.btn {
+    margin-bottom: 15px;
+    height: auto !important;
+    text-transform: unset !important;
+}
+
+.answer-btn {
+  width: 23% !important;
+  margin: 1% !important;
+  font-size: 3.1vw !important;
+  text-transform: unset !important;
+}
+
 /* Selects text color */
 .dropdown-content li > a, .dropdown-content li > span, .input-field input[type=text], .input-field input[type=text]:focus {
     color: black !important;
@@ -64,4 +77,6 @@ div.input-field label {
   margin-top: 20px;
   font-size: 2rem;
 }
+
+
 

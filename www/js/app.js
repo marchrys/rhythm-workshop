@@ -3,14 +3,15 @@ const app = new Vue({
   data: {
     lang: null,
     globalVars,
-    finishedLoadingSounds: false,
+    soundsLoaded: false,
     texts,
     screens,
     patterns,
     levels,
     selectedLevel: levels[0],
     questions: [],
-    rightAns: []
+    rightAns: [],
+    answers: ['?', '?', '?', '?']
   },
   methods: {
     detectNavigatorLanguage: function() {
@@ -44,7 +45,7 @@ const app = new Vue({
     checkSoundsLoad() {
       const soundsLoad = setInterval(function() {
         if(allSoundsLoaded) {
-          this.finishedLoadingSounds = true;
+          this.soundsLoaded = true;
           clearInterval(soundsLoad);
           return;
         }

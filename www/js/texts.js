@@ -18,6 +18,10 @@ const texts = {
   score: {
     en: 'Score',
     fr: 'Score'
+  },
+  answerSelect: {
+    en: 'Please select an answer',
+    fr: 'Sélectionnez une réponse'
   }
 };
 
