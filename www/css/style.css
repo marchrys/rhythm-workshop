@@ -71,11 +71,26 @@ div.input-field label {
   color: black;
 }
 
+.answer-radio-span{
+  font-size: 1.7rem !important;
+}
+
+[type="radio"]:checked + span:after,
+[type="radio"].with-gap:checked + span:before,
+[type="radio"].with-gap:checked + span:after {
+  border: 2px solid var(--main-bg-color) !important;
+}
+
+[type="radio"]:checked + span:after,
+[type="radio"].with-gap:checked + span:after {
+  background-color: var(--main-bg-color) !important;
+}
+
 .rhythms {
   font-family: rhythms;
   text-align: center;
   margin-top: 20px;
-  font-size: 2rem;
+  font-size: 1.7rem;
 }
 
 
