@@ -56,7 +56,7 @@
                     </div>
 
                     <div class="row ans-btn-row valign-wrapper">
-                      <a v-for="(btn, index) in 4" class="waves-effect waves-light btn answer-btn rhythms">
+                      <a v-for="(btn, index) in 4" class="waves-effect waves-light btn answer-btn rhythms" v-bind:class="{ disabled: ansBtnDisabled }">
                         {{ answers[index] }}
                       </a>
                     </div>
@@ -69,8 +69,11 @@
                             {{ patterns.find(pattern => pattern.id === id).rhythmsText }}
                           </span>
                         </label>
-                         <div>{{ selectedPattern }}</div>
                       </p>
+                    </div>
+
+                    <div class="row action-btn-row">
+                        <a v-for="(btn, index) in 4" class="waves-effect waves-light btn action-btn">{{ texts.actionButtons[index][lang] }}</a>
                     </div>
                 </div>
             </div>

@@ -22,6 +22,24 @@ const texts = {
   answerSelect: {
     en: 'Please select an answer',
     fr: 'Sélectionnez une réponse'
-  }
+  },
+  actionButtons: [
+    {
+      en: 'New question',
+      fr: 'Nouvelle question'
+    },
+    {
+      en: 'Listen again',
+      fr: 'Réécouter'
+    },
+    {
+      en: 'Check answers',
+      fr: 'Corriger'
+    },
+    {
+      en: 'Display right answers',
+      fr: 'Afficher les bonnes réponses'
+    }
+  ]
 };
 

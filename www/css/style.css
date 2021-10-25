@@ -37,7 +37,11 @@
   width: 23% !important;
   margin: 1% !important;
   font-size: 3.1vw !important;
-  text-transform: unset !important;
+}
+
+.action-btn {
+  width: 38% !important;
+  margin: 6% !important;
 }
 
 /* Selects text color */

@@ -12,7 +12,8 @@ const app = new Vue({
     questions: [],
     rightAns: [],
     answers: ['?', '?', '?', '?'],
-    selectedPattern : patterns[0]
+    ansBtnDisabled: true,
+    selectedPattern : patterns[0],
   },
   methods: {
     detectNavigatorLanguage: function() {
