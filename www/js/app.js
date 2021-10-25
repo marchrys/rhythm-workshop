@@ -14,6 +14,8 @@ const app = new Vue({
     answers: ['?', '?', '?', '?'],
     ansBtnDisabled: true,
     selectedPattern : patterns[0],
+    actionBtnDisabled: [false, true, true, true],
+    phrasePatternNum: 4
   },
   methods: {
     detectNavigatorLanguage: function() {
@@ -65,6 +67,22 @@ const app = new Vue({
         return 1;
       }
       return 0;
+    },
+    generatePhrase: function() {
+      const phrasePatternIds = [];
+
+      const randPatternId = this.selectedLevel.patternIds[Math.floor(Math.random() * this.selectedLevel.patternIds.length)];
+    },
+    handleLevelChange: function() {
+      this.selectedPattern = patterns.find(pattern => pattern.id === this.selectedLevel.patternIds[0]);
+    },
+    handleActionBtnClick(index){
+       
+      switch(index) {
+        case 0:
+          this.actionBtnDisabled = [true, false, false, true];
+          break;
+      }
     }
   },
   computed: {

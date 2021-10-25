@@ -73,13 +73,13 @@
                     </div>
 
                     <div class="row action-btn-row">
-                        <a v-for="(btn, index) in 4" class="waves-effect waves-light btn action-btn">{{ texts.actionButtons[index][lang] }}</a>
+                        <a v-for="(btn, index) in 4" class="waves-effect waves-light btn action-btn" v-bind:class="{ disabled: actionBtnDisabled[index] }" v-on:click="handleActionBtnClick(index)">{{ texts.actionButtons[index][lang] }}</a>
                     </div>
                 </div>
             </div>
             <div id="settings">
               <div class="input-field col s12">
-                <select v-model="selectedLevel">
+                <select v-on:change="handleLevelChange()" v-model="selectedLevel">
                   <option v-for="level in levels" v-bind:value="level">
                     {{ level.orderId }}
                   </option>
