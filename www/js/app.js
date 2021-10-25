@@ -36,6 +36,7 @@ const app = new Vue({
     loadData: function(){ 
       if (localStorage.selectedLevel) {
         this.selectedLevel = JSON.parse(localStorage.selectedLevel);
+        this.selectedPattern = this.patterns.find(pattern => pattern.id === this.selectedLevel.patternIds[0]);
       }
     },
     filterLevels: function(){
