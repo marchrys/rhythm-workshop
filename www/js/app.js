@@ -35,7 +35,7 @@ const app = new Vue({
         color: 'green-text'
       },
     ],
-    phraseFbIconIds: [0, 1, 1, 0]
+    phraseFbIconIds: [-1, -1, -1, -1]
   },
   methods: {
     detectNavigatorLanguage: function() {

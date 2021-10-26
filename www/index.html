@@ -65,6 +65,7 @@
                         <div v-for="(feedback, index) in phrasePatternNum" class="col feedback" v-bind:class="fbIcons.find(icon => icon.id === phraseFbIconIds[index]).color">
                           <i v-bind:class="fbIcons.find(icon => icon.id === phraseFbIconIds[index]).text"></i>
                         </div>
+                    </div>
 
                     <div class="row ans-radios-row">
                       <p v-for="id in selectedLevel.patternIds" class="left-align col s6 m4">
