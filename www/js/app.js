@@ -11,12 +11,14 @@ const app = new Vue({
     selectedLevel: levels[0],
     questions: [],
     rightAns: [],
-    answers: ['?', '?', '?', '?'],
+    phrasePatternIds: [],
+    answers: [0, 0, 0, 0],
     ansBtnDisabled: true,
     selectedPattern : patterns[0],
     actionBtnDisabled: [false, true, true, true],
     phrasePatternNum: 4,
-    startTimes: []
+    startTimes: [],
+    fbIcon: 'fas fa-times'
   },
   methods: {
     detectNavigatorLanguage: function() {
@@ -70,17 +72,28 @@ const app = new Vue({
       return 0;
     },
     generatePhrase: function() {
-      let phrasePatterns = [];
+      this.phrasePatternIds = [];
+      phrasePatterns = [];
       let phraseDurations = [];
       this.startTimes = [];
       let startTime = 0;
+      let lastPatternInstances = 0;
 
-      for(let i=1; i<=this.phrasePatternNum; i++) {
-        const randPatternId = this.selectedLevel.patternIds[Math.floor(Math.random() * this.selectedLevel.patternIds.length)];
+      while(lastPatternInstances === 0) {
+          this.phrasePatternIds = [];
+          phrasePatterns = [];
+          for(let i=1; i<=this.phrasePatternNum; i++) {
+            const randPatternId = this.selectedLevel.patternIds[Math.floor(Math.random() * this.selectedLevel.patternIds.length)];
 
-        const randPattern = this.patterns.find(pattern => pattern.id === randPatternId);
+            if(randPatternId == this.selectedLevel.patternIds[this.selectedLevel.patternIds.length-1]) {
+              lastPatternInstances++;
+            }
 
-        phrasePatterns.push(randPattern);
+            const randPattern = this.patterns.find(pattern => pattern.id === randPatternId);
+
+            this.phrasePatternIds.push(randPatternId);
+            phrasePatterns.push(randPattern);
+          }
       }
 
       phrasePatterns.forEach(function(pattern) {
@@ -99,21 +112,30 @@ const app = new Vue({
     },
     playPhrase: function() {
       this.startTimes.forEach(function(startTime) {
-        playSound(C2, startTime);
+        playSound(C4, startTime);
       }.bind(this));
     },
+
     handleLevelChange: function() {
       this.selectedPattern = patterns.find(pattern => pattern.id === this.selectedLevel.patternIds[0]);
     },
     handleActionBtnClick(index){
-       
+      
+      stopAllSounds();
       switch(index) {
         case 0:
-          // this.actionBtnDisabled = [true, false, false, true];
+          this.ansBtnDisabled = false;
+          this.actionBtnDisabled = [true, false, false, true];
           this.generatePhrase();
           this.playPhrase();
           break;
+        case 1:
+          this.playPhrase();
+          break;
       }
+    },
+    handleAnsBtnClick(index) {
+      this.answers.splice(index, 1, this.selectedPattern.id);
     }
   },
   computed: {

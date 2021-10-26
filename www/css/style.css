@@ -39,6 +39,11 @@
   font-size: 3.1vw !important;
 }
 
+.feedback {
+  width: 23% !important;
+  margin: 1% !important;
+}
+
 .action-btn {
   width: 38% !important;
   margin: 6% !important;

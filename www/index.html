@@ -56,10 +56,15 @@
                     </div>
 
                     <div class="row ans-btn-row valign-wrapper">
-                      <a v-for="(btn, index) in 4" class="waves-effect waves-light btn answer-btn rhythms" v-bind:class="{ disabled: ansBtnDisabled }">
-                        {{ answers[index] }}
+                      <a v-for="(btn, index) in phrasePatternNum" class="waves-effect waves-light btn answer-btn rhythms" v-bind:class="{ disabled: ansBtnDisabled }" v-on:click="handleAnsBtnClick(index)">
+                        {{ patterns.find(pattern => pattern.id === answers[index]).rhythmsText }}
                       </a>
                     </div>
+
+                    <div class="row feedbacks-row">
+                        <div v-for="(feedback, index) in phrasePatternNum" class="col feedback green-text">
+                          <i v-bind:class="fbIcon"></i>
+                        </div>
 
                     <div class="row ans-radios-row">
                       <p v-for="id in selectedLevel.patternIds" class="left-align col s6 m4">

@@ -1,5 +1,10 @@
 const patterns = [
   {
+    id: 0,
+    durations: [0],
+    rhythmsText: '?'
+  },
+  {
     id: 1,
     durations: [1],
     rhythmsText: 'q'
