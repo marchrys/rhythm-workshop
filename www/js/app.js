@@ -18,7 +18,24 @@ const app = new Vue({
     actionBtnDisabled: [false, true, true, true],
     phrasePatternNum: 4,
     startTimes: [],
-    fbIcon: 'fas fa-times'
+    fbIcons: [
+      {
+        id: -1,
+        text: '',
+        color: ''
+      },
+      {
+        id: 0,
+        text: 'fas fa-times',
+        color: 'red-text'
+      },
+      {
+        id: 1,
+        text: 'fas fa-check',
+        color: 'green-text'
+      },
+    ],
+    phraseFbIconIds: [0, 1, 1, 0]
   },
   methods: {
     detectNavigatorLanguage: function() {

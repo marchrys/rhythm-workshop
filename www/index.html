@@ -62,8 +62,8 @@
                     </div>
 
                     <div class="row feedbacks-row">
-                        <div v-for="(feedback, index) in phrasePatternNum" class="col feedback green-text">
-                          <i v-bind:class="fbIcon"></i>
+                        <div v-for="(feedback, index) in phrasePatternNum" class="col feedback" v-bind:class="fbIcons.find(icon => icon.id === phraseFbIconIds[index]).color">
+                          <i v-bind:class="fbIcons.find(icon => icon.id === phraseFbIconIds[index]).text"></i>
                         </div>
 
                     <div class="row ans-radios-row">
