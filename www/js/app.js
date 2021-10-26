@@ -15,7 +15,8 @@ const app = new Vue({
     ansBtnDisabled: true,
     selectedPattern : patterns[0],
     actionBtnDisabled: [false, true, true, true],
-    phrasePatternNum: 4
+    phrasePatternNum: 4,
+    startTimes: []
   },
   methods: {
     detectNavigatorLanguage: function() {
@@ -69,9 +70,37 @@ const app = new Vue({
       return 0;
     },
     generatePhrase: function() {
-      const phrasePatternIds = [];
+      let phrasePatterns = [];
+      let phraseDurations = [];
+      this.startTimes = [];
+      let startTime = 0;
 
-      const randPatternId = this.selectedLevel.patternIds[Math.floor(Math.random() * this.selectedLevel.patternIds.length)];
+      for(let i=1; i<=this.phrasePatternNum; i++) {
+        const randPatternId = this.selectedLevel.patternIds[Math.floor(Math.random() * this.selectedLevel.patternIds.length)];
+
+        const randPattern = this.patterns.find(pattern => pattern.id === randPatternId);
+
+        phrasePatterns.push(randPattern);
+      }
+
+      phrasePatterns.forEach(function(pattern) {
+        pattern.durations.forEach(function(duration) {
+          phraseDurations.push(duration);
+        });
+      });
+
+      this.startTimes.push(startTime);
+      phraseDurations.forEach(function(duration, index) {
+        if(index < phraseDurations.length-1) {
+          startTime += duration;
+          this.startTimes.push(startTime);
+        }
+      }.bind(this));
+    },
+    playPhrase: function() {
+      this.startTimes.forEach(function(startTime) {
+        playSound(C2, startTime);
+      }.bind(this));
     },
     handleLevelChange: function() {
       this.selectedPattern = patterns.find(pattern => pattern.id === this.selectedLevel.patternIds[0]);
@@ -80,7 +109,9 @@ const app = new Vue({
        
       switch(index) {
         case 0:
-          this.actionBtnDisabled = [true, false, false, true];
+          // this.actionBtnDisabled = [true, false, false, true];
+          this.generatePhrase();
+          this.playPhrase();
           break;
       }
     }
