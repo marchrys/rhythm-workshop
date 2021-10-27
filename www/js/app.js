@@ -21,7 +21,7 @@ const app = new Vue({
     fbIcons: [
       {
         id: -1,
-        text: '',
+        text: '&nbsp',
         color: ''
       },
       {
@@ -60,6 +60,12 @@ const app = new Vue({
       if (localStorage.selectedLevel) {
         this.selectedLevel = JSON.parse(localStorage.selectedLevel);
         this.selectedPattern = this.patterns.find(pattern => pattern.id === this.selectedLevel.patternIds[0]);
+      }
+      if(localStorage.questions) {
+        this.questions = JSON.parse(localStorage.questions);
+      }
+      if(localStorage.rightAns) {
+        this.rightAns = JSON.parse(localStorage.rightAns);
       }
     },
     filterLevels: function(){
@@ -143,6 +149,8 @@ const app = new Vue({
         case 0:
           this.ansBtnDisabled = false;
           this.actionBtnDisabled = [true, false, false, true];
+          this.answers = [0, 0, 0, 0];
+          this.phraseFbIconIds = [-1, -1, -1, -1];
           this.generatePhrase();
           this.phrasePatternIds.forEach(function(pattern) {
             this.questions.push({
@@ -156,6 +164,9 @@ const app = new Vue({
           this.playPhrase();
           break;
         case 2:
+          this.ansBtnDisabled = true;
+          this.actionBtnDisabled = [false, true, true, false];
+
           this.answers.forEach(function(answerId, index) {
             if(answerId === this.phrasePatternIds[index]) {
               this.rightAns.push({
@@ -168,6 +179,14 @@ const app = new Vue({
             }
           }.bind(this));
           break;
+
+          case 3:
+            this.phrasePatternIds.forEach(function(patternId, index) {
+              console.log(patternId);
+              this.answers.splice(index, 1, patternId);
+            }.bind(this));
+            this.phraseFbIconIds = [-1, -1, -1, -1];
+            break;
       }
     },
     handleAnsBtnClick(index) {
@@ -182,6 +201,12 @@ const app = new Vue({
   watch: {
     selectedLevel(newLevel) {
       localStorage.selectedLevel = JSON.stringify(newLevel);
+    },
+    questions() {
+      localStorage.questions = JSON.stringify(this.questions);
+    },
+    rightAns() {
+      localStorage.rightAns = JSON.stringify(this.rightAns);
     }
   },
   beforeMount(){
