@@ -140,7 +140,9 @@ const app = new Vue({
     },
 
     handleLevelChange: function() {
+      stopAllSounds();
       this.selectedPattern = patterns.find(pattern => pattern.id === this.selectedLevel.patternIds[0]);
+      this.actionBtnDisabled = [false, true, true, true];
     },
     handleActionBtnClick(index){
       
