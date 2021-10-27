@@ -144,10 +144,29 @@ const app = new Vue({
           this.ansBtnDisabled = false;
           this.actionBtnDisabled = [true, false, false, true];
           this.generatePhrase();
+          this.phrasePatternIds.forEach(function(pattern) {
+            this.questions.push({
+              patternId: pattern.id,
+              levelId: this.selectedLevel.id
+            });
+          }.bind(this));
           this.playPhrase();
           break;
         case 1:
           this.playPhrase();
+          break;
+        case 2:
+          this.answers.forEach(function(answerId, index) {
+            if(answerId === this.phrasePatternIds[index]) {
+              this.rightAns.push({
+                patternId: answerId,
+                levelId: this.selectedLevel.id
+              });
+              this.phraseFbIconIds.splice(index, 1, 1);
+            } else {
+              this.phraseFbIconIds.splice(index, 1, 0);
+            }
+          }.bind(this));
           break;
       }
     },
