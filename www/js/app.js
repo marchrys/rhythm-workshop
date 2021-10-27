@@ -198,6 +198,12 @@ const app = new Vue({
   computed: {
     percentage: function() {
       return(num1, num2) => (num2 > 0) ? Math.round(num1 * 100 / num2) : 0;
+    },
+    questionsByLevel: function() {
+      return(levelId) => this.questions.filter(question => question.levelId === levelId);
+    },
+    rightAnsByLevel: function() {
+      return(levelId) => this.rightAns.filter(rightAns => rightAns.levelId === levelId);
     }
   },
   watch: {

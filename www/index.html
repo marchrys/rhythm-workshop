@@ -98,6 +98,37 @@
                 </div>
               </div>
             </div>
+            <div id="stats">
+                <table class="responsive-table centered" id="stats-table">
+                    <thead>
+                        <tr>
+                              <th id="level-th">{{ texts.level[lang] }}</th>
+                              <th id="description-th">{{ texts.newPattern[lang] }}</th>
+                              <th id="questions-th">{{ texts.questions[lang] }}</th>
+                              <th id="right-ans-th">{{ texts.rightAns[lang] }}</th>
+                              <th id="percentage-th">{{ texts.successPercentage[lang] }}</th>
+                              <th id="actions-th">{{ texts.actions[lang] }}</th>
+                        </tr>
+                      
+                    </thead>
+                    <tbody id="stats-tbody">
+                        <tr v-for="level in levels">
+                            <td>{{ level.orderId }}</td>
+                            <td class="pattern-td rhythms">
+                                {{ patterns.find(pattern => pattern.id === level.patternIds[level.patternIds.length-1]).rhythmsText }}
+                            </td>
+                            <td>{{ questionsByLevel(level.id).length }}</td>
+                            <td>{{ rightAnsByLevel(level.id).length }}</td>
+                            <td>{{ percentage(rightAnsByLevel(level.id).length, questionsByLevel(level.id).length) }}</td>
+                            <td>
+                                <a class="waves-effect waves-light btn delete-stats-btn">
+                                    <i class="fas fa-trash-alt"></i>
+                                </a>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
         </div>
       </div>
 

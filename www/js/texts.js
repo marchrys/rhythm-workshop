@@ -40,6 +40,26 @@ const texts = {
       en: 'Display right answers',
       fr: 'Afficher les bonnes réponses'
     }
-  ]
+  ],
+  newPattern: {
+    en: 'New pattern',
+    fr: 'Nouveau motif'
+  },
+  questions: {
+    en: 'Questions',
+    fr: 'Questions'
+  },
+  rightAns: {
+    en: 'Right answers',
+    fr: 'Bonnes réponses'
+  },
+  successPercentage: {
+    en: 'Success percentage',
+    fr: 'Pourcentage de réussite'
+  },
+  actions: {
+    en: 'Actions',
+    fr: 'Actions'
+  }
 };
 

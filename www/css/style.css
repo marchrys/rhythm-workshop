@@ -102,5 +102,13 @@ div.input-field label {
   font-size: 1.7rem;
 }
 
+#stats-table th, #stats-table td {
+  margin-top: 1rem;
+}
+
+.pattern-td {
+  font-size: 1rem !important;
+}
+
 
 

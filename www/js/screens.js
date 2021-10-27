@@ -14,6 +14,14 @@ const screens = [
       fr: 'Options'
     },
     div: '#settings'
+  },
+  {
+    id: 3,
+    title: {
+      en: 'Statistics',
+      fr: 'Statistiques'
+    },
+    div: '#stats'
   }
 ];
 
