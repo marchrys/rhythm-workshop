@@ -37,7 +37,8 @@ const app = new Vue({
     ],
     phraseFbIconIds: [-1, -1, -1, -1],
     resetLevelId: 0,
-    resetText: texts.resetGlobalStats['en']
+    resetText: texts.resetGlobalStats['en'],
+    playings: 0
   },
   methods: {
     detectNavigatorLanguage: function() {
@@ -157,6 +158,8 @@ const app = new Vue({
     handleLevelChange: function() {
       stopAllSounds();
       this.selectedPattern = patterns.find(pattern => pattern.id === this.selectedLevel.patternIds[0]);
+      this.answers = [0, 0, 0, 0];
+      this.phraseFbIconIds = [-1, -1, -1, -1];
       this.actionBtnDisabled = [false, true, true, true];
     },
     handleActionBtnClick(index){
@@ -176,9 +179,14 @@ const app = new Vue({
             });
           }.bind(this));
           this.playPhrase();
+          this.playings = 1;
           break;
         case 1:
           this.playPhrase();
+          this.playings++;
+          if(this.globalVars.version.id === 0 && this.playings === this.globalVars.version.liteMaxPlayings) {
+            this.actionBtnDisabled = [true, true, false, true];
+          }
           break;
         case 2:
           this.ansBtnDisabled = true;
@@ -214,7 +222,8 @@ const app = new Vue({
       if(this.resetLevelId === 0) {
         this.resetText = this.texts.resetGlobalStats[this.lang];
       } else {
-        this.resetText = this.texts.resetLevelStats[this.lang] + ' ' + this.resetLevelId;
+        const level = this.levels.find(level => level.id === this.resetLevelId);
+        this.resetText = this.texts.resetLevelStats[this.lang] + ' ' + level.orderId;
       }
 
       // const statsModal = document.querySelector('#delete-stats-modal');
