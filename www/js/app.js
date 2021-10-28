@@ -153,6 +153,9 @@ const app = new Vue({
         this.questions = this.questions.filter(question => question.levelId !== this.resetLevelId);
         this.rightAns = this.rightAns.filter(rightAns => rightAns.levelId !== this.resetLevelId);
       }
+      this.answers = [0, 0, 0, 0];
+      this.phraseFbIconIds = [-1, -1, -1, -1];
+      this.actionBtnDisabled = [false, true, true, true];
     },
 
     handleLevelChange: function() {
