@@ -93,10 +93,10 @@ const app = new Vue({
       this.levels.sort(this.compareLevels);
     },
     compareLevels: function( a, b ) {
-      if ( a.order < b.order ){
+      if ( a.orderId < b.orderId ){
         return -1;
       }
-      if ( a.order > b.order ){
+      if ( a.orderId > b.orderId ){
         return 1;
       }
       return 0;
@@ -260,6 +260,7 @@ const app = new Vue({
     this.loadData();
     this.filterLevels();
     this.orderLevels();
+    console.log(JSON.stringify(this.levels));
   },
   mounted(){
     this.initTabs();
