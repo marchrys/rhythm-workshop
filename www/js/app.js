@@ -232,6 +232,9 @@ const app = new Vue({
       // const statsModal = document.querySelector('#delete-stats-modal');
       // const instance = M.Modal.init(statsModal, {});
       // instance.open();
+    },
+    handleTabClick: function() {
+      alert('Tab clicked!');
     }
   },
   computed: {

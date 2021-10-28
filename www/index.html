@@ -68,7 +68,7 @@
                     </div>
 
                     <div class="row ans-radios-row">
-                      <p v-for="id in selectedLevel.patternIds" class="left-align col s6 m4">
+                      <p v-for="id in selectedLevel.patternIds" class="left-align col s3 m2">
                         <label>
                           <input class="with-gap" name="group1" v-model="selectedPattern" v-bind:value="patterns.find(pattern => pattern.id === id)" type="radio"/>
                           <span class="black-text rhythms answer-radio-span">

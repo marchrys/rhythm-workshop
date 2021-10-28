@@ -81,7 +81,7 @@ div.input-field label {
 }
 
 .answer-radio-span{
-  font-size: 1.7rem !important;
+  font-size: 1.3rem !important;
 }
 
 [type="radio"]:checked + span:after,
@@ -99,7 +99,7 @@ div.input-field label {
   font-family: rhythms;
   text-align: center;
   margin-top: 20px;
-  font-size: 1.7rem;
+  font-size: 1.5rem;
 }
 
 #stats-table th, #stats-table td {

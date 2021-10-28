@@ -29,5 +29,25 @@ const patterns = [
     durations: [0.75, 0.25],
     rhythmsText: 'r.g'
   },
+  {
+    id: 6,
+    durations: [0.25, 0.75],
+    rhythmsText: 'dy.'
+  },
+  {
+    id: 7,
+    durations: [0.5, 0.25, 0.25],
+    rhythmsText: 'rdg'
+  },
+  {
+    id: 8,
+    durations: [0.25, 0.25, 0.5],
+    rhythmsText: 'dgy'
+  },
+  {
+    id: 9,
+    durations: [0.25, 0.5, 0.25],
+    rhythmsText: 'dtg'
+  },
 ];
 
