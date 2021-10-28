@@ -119,15 +119,42 @@
                             </td>
                             <td>{{ questionsByLevel(level.id).length }}</td>
                             <td>{{ rightAnsByLevel(level.id).length }}</td>
-                            <td>{{ percentage(rightAnsByLevel(level.id).length, questionsByLevel(level.id).length) }}</td>
+                            <td>{{ percentage(rightAnsByLevel(level.id).length, questionsByLevel(level.id).length) }}%</td>
                             <td>
-                                <a class="waves-effect waves-light btn delete-stats-btn">
+                                <a v-show="globalVars.version.id === 1 && questionsByLevel(level.id).length > 0" href="#delete-stats-modal" class="waves-effect waves-light btn delete-stats-btn modal-trigger" v-on:click="handleResetBtnClick(level.id)">
+                                    <i class="fas fa-trash-alt"></i>
+                                </a>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>{{ texts.sum[lang] }}</td>
+                            <td class="pattern-td rhythms"></td>
+                            <td>{{ questions.length }}</td>
+                            <td>{{ rightAns.length }}</td>
+                            <td>{{ percentage(rightAns.length, questions.length) }}%</td>
+                            <td>
+                                <a v-show="questions.length > 0" href="#delete-stats-modal" class="waves-effect waves-light btn delete-stats-btn modal-trigger" v-on:click="handleResetBtnClick(0)">
                                     <i class="fas fa-trash-alt"></i>
                                 </a>
                             </td>
                         </tr>
                     </tbody>
                 </table>
+
+                <!-- code de la fenêtre modale pour la suppression des stats -->
+                <div id="delete-stats-modal" class="modal">
+                  <div class="modal-content">
+                    <h5>{{ texts.resetStatsTitle[lang] }}</h5>
+                    <p class="modal-text">{{ resetText }}?</p>
+                  </div>
+                  <div class="modal-footer">
+                    <a href="#!" id="delete-ok-btn" class="modal-close waves-effect waves-green btn-flat red-text" v-on:click="resetStats()">
+                      {{ texts.yes[lang] }}
+                    </a>
+                    <a href="#!" class="modal-close waves-effect waves-green btn-flat">{{ texts.no[lang] }}</a>
+                  </div>
+                </div>
             </div>
         </div>
       </div>

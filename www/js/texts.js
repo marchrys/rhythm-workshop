@@ -60,6 +60,30 @@ const texts = {
   actions: {
     en: 'Actions',
     fr: 'Actions'
+  },
+  resetStatsTitle: {
+    en: 'Reset statistics',
+    fr: 'Réinitialisation de statistiques'
+  },
+  resetLevelStats: {
+    en: 'Are you shure you want to reset statistics of level',
+    fr: 'Êtes-vous sûr(e) de vouloir réinitialiser les statistiques du niveau'
+  },
+  resetGlobalStats: {
+    en: 'Are you shure you want to reset all the statistics',
+    fr: 'Êtes-vous sûr(e) de vouloir réinitialiser toutes les statistiques'
+  },
+  yes: {
+    en: 'Yes',
+    fr: 'Oui'
+  },
+  no: {
+    en: 'No',
+    fr: 'Non'
+  },
+  sum: {
+    en: 'Sum',
+    fr: 'Total'
   }
 };
 

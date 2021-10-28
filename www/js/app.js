@@ -35,7 +35,9 @@ const app = new Vue({
         color: 'green-text'
       },
     ],
-    phraseFbIconIds: [-1, -1, -1, -1]
+    phraseFbIconIds: [-1, -1, -1, -1],
+    resetLevelId: 0,
+    resetText: texts.resetGlobalStats['en']
   },
   methods: {
     detectNavigatorLanguage: function() {
@@ -55,6 +57,10 @@ const app = new Vue({
     initSelects: function(){
       const elems = document.querySelectorAll('select');
       const instances = M.FormSelect.init(elems, {});
+    },
+    initModals: function() {
+      const elems = document.querySelectorAll('.modal');
+      const instances = M.Modal.init(elems, {});
     },
     loadData: function(){ 
       if (localStorage.selectedLevel) {
@@ -138,6 +144,15 @@ const app = new Vue({
         playSound(C4, startTime);
       }.bind(this));
     },
+    resetStats: function() {
+      if(this.resetLevelId === 0) {
+        this.questions = [];
+        this.rightAns = [];
+      } else {
+        this.questions = this.questions.filter(question => question.levelId !== this.resetLevelId);
+        this.rightAns = this.rightAns.filter(rightAns => rightAns.levelId !== this.resetLevelId);
+      }
+    },
 
     handleLevelChange: function() {
       stopAllSounds();
@@ -193,6 +208,18 @@ const app = new Vue({
     },
     handleAnsBtnClick(index) {
       this.answers.splice(index, 1, this.selectedPattern.id);
+    },
+    handleResetBtnClick: function(levelId) {
+      this.resetLevelId = levelId;
+      if(this.resetLevelId === 0) {
+        this.resetText = this.texts.resetGlobalStats[this.lang];
+      } else {
+        this.resetText = this.texts.resetLevelStats[this.lang] + ' ' + this.resetLevelId;
+      }
+
+      // const statsModal = document.querySelector('#delete-stats-modal');
+      // const instance = M.Modal.init(statsModal, {});
+      // instance.open();
     }
   },
   computed: {
@@ -228,6 +255,7 @@ const app = new Vue({
   mounted(){
     this.initTabs();
     this.initSelects();
+    this.initModals();
   }
 });
    
