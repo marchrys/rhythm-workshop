@@ -156,7 +156,7 @@ function playSound(buffer, time) {
     gainNode.connect(context.destination);
     // source.connect(context.destination);
     // Reduce the volume.
-    gainNode.gain.value = 0.8;
+    gainNode.gain.value = 0.1;
     source.start(context.currentTime + time);
 
     soundSources.push(source);
