@@ -4,8 +4,8 @@
 }
 
 :root {
-    --screen-bg-color: lightgray;
-    --main-bg-color: teal;
+    --screen-bg-color: #CBCBD4;
+    --main-bg-color: #885189;
     --danger-color: red;
     --green-color: green;
     background-color: var(--screen-bg-color);
@@ -108,6 +108,14 @@ div.input-field label {
 
 .pattern-td {
   font-size: 1rem !important;
+}
+
+.delete-stats-btn {
+  background-color: var(--danger-color) !important;
+}
+
+#sum-tr {
+  font-weight: bold;
 }
 
 
