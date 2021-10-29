@@ -93,7 +93,7 @@
                 <label>{{ texts.levelSelectLabel[lang] }}</label>
               </div>
               <div class="row">
-                <div class="rhythms col s6 m4 l3" v-for="id in selectedLevel.patternIds">
+                <div class="rhythms col s4 m3 l2" v-for="id in selectedLevel.patternIds">
                   {{ patterns.find(pattern => pattern.id === id).rhythmsText }}
                 </div>
               </div>

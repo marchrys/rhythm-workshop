@@ -122,5 +122,13 @@ div.input-field label {
   font-weight: bold;
 }
 
+.progress {
+    background-color: var(--main-bg-color) !important;
+}
+
+.progress .indeterminate {
+    background-color: var(--screen-bg-color) !important;
+}
+
 
 
