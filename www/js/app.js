@@ -266,7 +266,6 @@ const app = new Vue({
     this.loadData();
     this.filterLevels();
     this.orderLevels();
-    console.log(JSON.stringify(this.levels));
   },
   mounted(){
     this.initTabs();
