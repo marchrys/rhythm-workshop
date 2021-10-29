@@ -33,6 +33,10 @@
     text-transform: unset !important;
 }
 
+a:hover {
+  background-color: var(--main-bg-color) !important;
+}
+
 .answer-btn {
   width: 23% !important;
   margin: 1% !important;
