@@ -1,4 +1,9 @@
 @font-face {
+    font-family: poppins;
+    src: url('../fonts/poppins/poppins-regular.ttf')  format('truetype');
+}
+
+@font-face {
     font-family: rhythms;
     src: url('../fonts/rhythms/rhythms.ttf')  format('truetype');
 }
@@ -8,8 +13,9 @@
     --main-bg-color: #885189;
     --danger-color: red;
     --green-color: green;
+    font-family: 'poppins';
     background-color: var(--screen-bg-color);
-    font-size: 15px;
+    font-size: 17px;
 }
 
 .nav-content, a.btn, div.collapsible-header{
