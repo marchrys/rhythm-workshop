@@ -263,9 +263,10 @@ const app = new Vue({
     initSounds();
     this.checkSoundsLoad();
     this.detectNavigatorLanguage();
-    this.loadData();
     this.filterLevels();
     this.orderLevels();
+    this.selectedLevel = this.levels[0];
+    this.loadData();
   },
   mounted(){
     this.initTabs();

@@ -9,7 +9,7 @@ const levels = [
     id: 2,
     orderId: 3,
     patternIds: [1, 2, 3, 4],
-    inLite: false,
+    inLite: true,
   },
   {
     id: 3,
